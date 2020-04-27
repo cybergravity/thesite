@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  </head>
+	  <body>
+	  <center>
+		  <table border="2" style="border-collapse:collapse;" >
+			  <th colspan="8" width="90%">
+              <center>
+				  
+				  <p align="center" style="margin-bottom: 0px;"><b><font size="2">||SHREE GANESHAY NAMAHA||</font></b></p><br>
+				  <p align="center" style="margin-top: 0px; margin-bottom: 0px;"  ><b><font size="3">Subject to Badlapur Jurisdiction</font></b></p>
+				  <p align="center" style="color:red;margin-top: 0px;margin-bottom: 0px;" ><b><font size="6">KRISHNA KANCHAN BANGLES</font></b></p>
+				  
+				  <p align="center" style="margin-top: 0px;margin-bottom: 0px; " ><b><font size="3">ABHILASHA ,SABHAGRUH,KATRAP ROAD, BADLAPUR (E)421 503 DIST:THANE </u></font></b></p>
+				  <p align="center" style="margin-top: 0px;margin-bottom: 0px;" ><b><font size="3">MOB :9323946711</font></b></p>
+				
+				  <font size="2"><u><b>{{ dest.bill_type }}</b></u></font><br>
+				  
+				</center>
+			
+			  </th>
+			  <tr>
+				
+				  <td colspan="4"><b>
+					  NAME &nbsp;&nbsp;: {{customer.name}}
+					  <br>
+					  ADDRESS &nbsp;&nbsp;: {{customer.address}}
+					  <br>
+					  MOBILE NO &nbsp;&nbsp;:{{customer.mobile_no}}
+					  <br>
+					  CITY &nbsp;&nbsp;:{{customer.city}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATE &nbsp;&nbsp;: {{customer.state}}
+					  <br>
+					  CLIENT GST NO/PAN NO &nbsp;&nbsp;: {{customer.gst_no}}
+				  </td>
+				
+				  <td colspan="4">
+					  <b>
+					  INVOICE NO &nbsp;&nbsp;: {{dest.invoice_no}}
+					  <br>
+					  DATE &nbsp;&nbsp;: {{dest.dated}}
+					  <br>
+					  CHALLAN NO &nbsp;&nbsp;:{{dest.challan_no}}
+					  <br>
+					  DATE &nbsp;&nbsp;:{{dest.date}}
+					  <br>
+					  TRANSPORT MODE &nbsp;&nbsp;: {{dest.transport}}
+					  <br>
+					  VEHICLE NO &nbsp;&nbsp;: {{dest.vehicle_no}}
+				  </td>
+			  </tr>
+			<tr>
+			  <td colspan="8"><br>
+			</tr>
+			<tr>
+			  <td width="5%"><b>S.N.</td>
+			  <td width="35%"><b>Description of goods</td>
+			  <td width="10%"><b>HSN</td>
+			  <td width="10%"><b>Qty.</td>
+			  <td width="10%"><b>Unit</td>
+			  <td width="15%"><b>Price</td>
+			  <td width="15%"><b>Amount</td>
+			</tr>
+		{% for rests in rest%}
+			<tr>
+			  <td style="vertical-align:top;border-bottom-color: white" >{{rests.index}}</td>
+			  <td style="vertical-align:top;border-bottom-color: white" >{{rests.design_name}}</td>
+			  <td style="vertical-align:top;border-bottom-color: white" >{{dest.hsn_code}}</td>
+			  <td style="vertical-align:top;border-bottom-color: white" >{{rests.qty}}</td>
+			  <td style="vertical-align:top;border-bottom-color: white" >{{rests.pics}}</td>
+			  <td style="vertical-align:top;border-bottom-color: white" >{{rests.rate}}</td>
+			  <td style="vertical-align:top;border-bottom-color: white" >{{rests.amount}}</td>
+			</tr>
+		{% endfor %}	
+	
+				
+				  {% if x == last %}
+				  <tr>
+					<td >&nbsp;</td>
+					<td >&nbsp;</td>
+					<td >&nbsp;</td>
+					<td >&nbsp;</td>
+					<td >&nbsp;</td>
+					<td >&nbsp;</td>
+					<td >&nbsp;</td>
+				  </tr>
+				  {% else %}
+				  <tr>
+					<td style="border-bottom-color: white">&nbsp;</td>
+					<td style="border-bottom-color: white">&nbsp;</td>
+					<td style="border-bottom-color: white">&nbsp;</td>
+					<td style="border-bottom-color: white">&nbsp;</td>
+					<td style="border-bottom-color: white">&nbsp;</td>
+					<td style="border-bottom-color: white">&nbsp;</td>
+					<td style="border-bottom-color: white">&nbsp;</td>
+				  </tr>
+				  {% endif %}
+				
+			  <tr>
+				
+			  <td colspan="6"><p align="right">Total<br>
+			  <i>Add : C.G.S.T  </i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@&nbsp;&nbsp;1.5%<br>
+			  <i>Add : S.G.S.T  </i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@&nbsp;&nbsp;1.5%</br>
+			  <i>Add : I.G.S.T  </i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@&nbsp;&nbsp;----%</p>
+			  </td>
+			  <td><p align="right">{{calc.total_amount}}<br>
+					{{calc.cgst}}<br>
+					{{calc.sgst}}<br>
+					<br>
+			  </p>
+			  </td>
+			  </tr>
+			  <tr>
+			  <td colspan="6"><p align="right"><font size="4"><b><u></u>Grand Total</u></b></font></p></td>
+			  <td><p align="right"> <font size="4"><b>&nbsp;&nbsp;&nbsp;&nbsp;<u>₹{{calc.total_amount_after_tax}}/-</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></font></td></p>
+			  </tr><tr>
+			  <td colspan="8"><b>Total Invoice Amount In Word : "{{calc.total_amount_in_words|title}}"<br>
+			  
+			  </b></td>
+			
+			  </tr>
+			  
+			  <tr>
+			  
+			  
+			  <td colspan="3" >
+			  <b><u>Bank Details</u></b><br>
+			  Bank Name:Axis Bank<br>
+			  IFSC CODE :UTIB0001342<br>
+			  Current Account Number :917020048139956<br>
+			  GSTIN:27AEGPG4729N1Z4<br>
+			  </td>
+				
+				  <td colspan="5">
+			  <b><u>Terms And Condition</u></b>&nbsp;&nbsp;&nbsp;&nbsp; E.&O.E.<br>
+			  
+			  1.Goods once sold will not be taken back.<br>
+			  2.payment within ----days from the date of bill<br>
+			  3.Our responsibility ceases once the goods leave our premises.<br>
+			  </td>
+			  
+			  </tr>
+			    <tr>
+				
+				  <td colspan="4">
+					  
+					<b>Receiver's Signature :<br>&nbsp; 
+					 
+				  </td>
+				
+				  <td colspan="4" >
+					
+					<b>for Krishna Kanchan Bangles <br><br><br>
+						Authorised Signatory</b>
+					  
+				  </td>
+			  </tr>
+		  </table>
+		  </center>
+		  <center>
+		  <button  onclick="javascript:window.print()" class="btn-print">Print</button>
+		  <div class="print">
+		  </center>
+		  </div>
+	  </body>
+	</html>
+	
