@@ -129,13 +129,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['postgresql'].update(db_from_env)
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/static/'
 
 
-
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage' 
 
 
 
