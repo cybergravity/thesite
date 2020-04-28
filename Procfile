@@ -1,1 +1,1 @@
-web : gunicorn travello.wsgi
+web : gunicorn telusko.wsgi
