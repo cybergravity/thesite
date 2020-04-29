@@ -130,7 +130,14 @@ STATICFILES_DIRS = [
         os.path.join(BASE_DIR, "static"),
     ]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 #EMAIL_BACKEND = ‘django.core.mail.backends.smtp.EmailBackend’
 EMAIL_HOST = 'smtp.gmail.com'
