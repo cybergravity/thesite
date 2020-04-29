@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -138,7 +139,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
@@ -146,12 +149,14 @@ STATICFILES_DIRS = [
     ]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage' 
 
 # Extra places for collectstatic to find static files.
 
 
-
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
 
 #EMAIL_BACKEND = ‘django.core.mail.backends.smtp.EmailBackend’
 EMAIL_HOST = 'smtp.gmail.com'
