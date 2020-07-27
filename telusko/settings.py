@@ -33,7 +33,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['krishna05.herokuapp.com', '127.0.0.1']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -83,11 +82,13 @@ WSGI_APPLICATION = 'telusko.wsgi.application'
 
 # Database
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'know',
+        'USER': 'postgres',
+        'PASSWORD': '0258',
+        'HOST': 'localhost'
     }
 }
 
