@@ -76,11 +76,12 @@
     </div>
   </nav>
   
-  <h1>All Bill</h1>
+  <div class="container">
+      <h1 style="text-align: center;">All Bill</h1>
     {%for bill in bills%}
-    <a href="{%url 'bill' bill.unique_id%}">Bill : {{bill.unique_id}}</a><br>
-    
+        <a href="{%url 'bill' bill.unique_id%}">Bill : {{bill.unique_id}}</a><br>
     {%endfor%}
+  </div>
 
   <!-- Wrapper -->
   <div class="wrapper">
@@ -106,8 +107,7 @@
         </div>
       {% endfor %}
     {% endif %}
-
-    {% block content %}{% endblock %}
+          {% block content %}{% endblock %}
   </div>
 
   <!-- JS -->
