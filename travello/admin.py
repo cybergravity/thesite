@@ -21,7 +21,7 @@ class DestinationAdmin(admin.ModelAdmin):
     list_display = ('title','last_modified','created','bill_type')
     list_display_links = ('created',)
     list_editable = ('title',)
-    list_filter=('created','bill_type')
+    list_filter=('created','bill_type',)
     search_fields = ('title',)
     
     

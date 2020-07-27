@@ -31,7 +31,7 @@ SECRET_KEY = 'u=#gre%c92(v5j&$&cvwd6=0g@t3xjkjz3zeye1y5=ifxjrqi-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['krishna05.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -83,11 +83,13 @@ WSGI_APPLICATION = 'telusko.wsgi.application'
 
 # Database
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'know',
+        'USER': 'postgres',
+        'PASSWORD': '0258',
+        'HOST': 'localhost'
     }
 }
 
