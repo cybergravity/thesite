@@ -47,3 +47,7 @@ def bill_view(request, unique_id):
 
     print(unique_id)
     return render(request, "bill.html", {'dest': dest, 'rest': rest, 'customer': customer, 'calc': calc})
+
+
+def add_destination(request):
+    return render(request, 'frontend/destination.html')
